@@ -8,7 +8,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// 
     /// Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures? 
     /// 
-    /// *The asymptotic computational complexity of this solution is **O(n^2^)** where **n** is the length of the string* 
+    /// *The asymptotic computational complexity of my solution should be **O(n^2^)** where **n** is the length of the string* 
     /// 
     /// </summary>
     class __01
