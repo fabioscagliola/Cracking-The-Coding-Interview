@@ -8,5 +8,7 @@
 
 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures? 
 
-*The asymptotic computational complexity of my solution should be **O(n^2^)** where **n** is the length of the string* 
+### 1.2 Check Permutation 
+
+Given two strings, write a method to decide it one is a permutation of the other. 
 

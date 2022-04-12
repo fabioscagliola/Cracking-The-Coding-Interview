@@ -8,12 +8,10 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// 
     /// Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures? 
     /// 
-    /// *The asymptotic computational complexity of my solution should be **O(n^2^)** where **n** is the length of the string* 
-    /// 
     /// </summary>
-    class __01
+    class Question01
     {
-        public static bool IsUnique(string s)
+        static bool IsUnique(string s)
         {
             bool result = true;
 
@@ -33,18 +31,18 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
         }
 
         [TestFixture]
-        class __01Test
+        class Question01Test
         {
             [Test]
-            public void __01_IsUnique_ReturnsFalse()
+            public void Question01_IsUnique_ReturnsFalse()
             {
-                Assert.IsFalse(__01.IsUnique("Laura"));
+                Assert.IsFalse(Question01.IsUnique("Laura"));
             }
 
             [Test]
-            public void __01_IsUnique_ReturnsTrue()
+            public void Question01_IsUnique_ReturnsTrue()
             {
-                Assert.IsTrue(__01.IsUnique("Fabio"));
+                Assert.IsTrue(Question01.IsUnique("Fabio"));
             }
 
         }
