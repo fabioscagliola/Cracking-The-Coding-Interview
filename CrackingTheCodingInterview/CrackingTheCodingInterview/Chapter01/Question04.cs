@@ -16,44 +16,8 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     {
         static bool PalindromePermutation(string s)
         {
-            List<List<char>> permutations = new List<List<char>>();
-            Heap(s.ToCharArray().ToList(), s.Length, permutations);
+            List<List<char>> permutations = s.ToCharArray().ToList().GeneratePermutations();
             return permutations.Select(x => new string(x.ToArray())).Contains(s);
-        }
-
-        static List<List<T>> Heap<T>(List<T> A, int k, List<List<T>> result)
-        {
-            if (k == 1)
-            {
-                result.Add(new List<T>(A));
-            }
-            else
-            {
-                Heap(A, k - 1, result);
-
-                for (int i = 0; i < k - 1; i++)
-                {
-                    if (k % 2 == 0)
-                    {
-                        Swap(A, i, k - 1);
-                    }
-                    else
-                    {
-                        Swap(A, 0, k - 1);
-                    }
-
-                    Heap(A, k - 1, result);
-                }
-            }
-
-            return result;
-        }
-
-        static void Swap<T>(List<T> list, int index1, int index2)
-        {
-            T temp = list[index1];
-            list[index1] = list[index2];
-            list[index2] = temp;
         }
 
         [TestFixture]
