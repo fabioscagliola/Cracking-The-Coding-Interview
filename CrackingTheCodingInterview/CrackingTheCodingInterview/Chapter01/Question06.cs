@@ -16,23 +16,16 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            int count = 1;
+            int count = 0;
 
-            for (int i = 0; i < s.Length - 1; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (i == s.Length - 2 && s[i] == s[i + 1])
-                {
-                    count++;
-                    stringBuilder.Append($"{s[i]}{count}");
-                }
-                if (s[i] == s[i + 1])
-                {
-                    count++;
-                }
-                else
+                count++;
+
+                if (i + 1 == s.Length || s[i] != s[i + 1])
                 {
                     stringBuilder.Append($"{s[i]}{count}");
-                    count = 1;
+                    count = 0;
                 }
             }
 
