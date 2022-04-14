@@ -13,23 +13,8 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     {
         static bool OneAway(string s1, string s2)
         {
-            if (s2.Length > s1.Length + 1)
-                return false;
-
-            if (s2.Length < s1.Length - 1)
-                return false;
-
-            if (s1.Length == s2.Length + 1)  // A character was removed 
-            {
-                for (int i = 0; i < s2.Length; i++)
-                {
-                    if (!s1.Contains(s2[i]))
-                    {
-                        return false;
-                    }
-                }
-            }
-            else if (s1.Length == s2.Length - 1)  // A character was inserted 
+            // A character was inserted 
+            if (s1.Length == s2.Length - 1)
             {
                 for (int i = 0; i < s1.Length; i++)
                 {
@@ -39,13 +24,34 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
                     }
                 }
             }
-            else if (s2.Length == s1.Length)  // A character was replaced 
+
+            // A character was removed 
+            if (s1.Length == s2.Length + 1)
             {
-                for (int i = 0; i < s1.Length - 1; i++)
+                for (int i = 0; i < s2.Length; i++)
                 {
-                    if (s1[i] != s2[i] && s1[i + 1] != s2[i + 1])
+                    if (!s1.Contains(s2[i]))
                     {
                         return false;
+                    }
+                }
+            }
+
+            // A character was replaced 
+            if (s2.Length == s1.Length)
+            {
+                int replacedCharacters = 0;
+
+                for (int i = 0; i < s1.Length - 1; i++)
+                {
+                    if (s1[i] != s2[i])
+                    {
+                        replacedCharacters++;
+
+                        if (replacedCharacters > 1)
+                        {
+                            return false;
+                        }
                     }
                 }
             }
@@ -60,16 +66,14 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
             public void Question05_OneAway_ReturnsTrue()
             {
                 Assert.IsTrue(Question05.OneAway("pale", "ple"));
-                Assert.IsTrue(Question05.OneAway("pale", "pales"));
-                //Assert.IsTrue(Question05.OneAway("pale", "bale"));
+                Assert.IsTrue(Question05.OneAway("pales", "pale"));
+                Assert.IsTrue(Question05.OneAway("pale", "bale"));
             }
 
             [Test]
             public void Question05_OneAway_ReturnsFalse()
             {
                 Assert.IsFalse(Question05.OneAway("pale", "bake"));
-                Assert.IsFalse(Question05.OneAway("abcd", "abcdef"));
-                Assert.IsFalse(Question05.OneAway("abcd", "ab"));
             }
 
         }
