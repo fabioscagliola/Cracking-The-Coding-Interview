@@ -24,3 +24,7 @@ Given a string, write a function to check if it is a permutation of a palindrome
 
 Implement a method to perform basic string compression using the counts of repeated characters. For example, the string `aabcccccaaa` would become `a2b1c5a3`. If the "compressed" string would not become smaller than the original string, your method should return the original string. 
 
+### 1.7 Rotate Matrix 
+
+Given an image represented by an N x N matrix, where each pixel in the image is represented by an integer, write a method to rotate the image by 90 degrees. Can you do this in place? 
+
