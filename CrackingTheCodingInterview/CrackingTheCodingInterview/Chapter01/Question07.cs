@@ -11,23 +11,41 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// </summary>
     class Question07
     {
-        static void RotateMatrix(int[,] matrix)
+        enum Rotation
+        {
+            Clockwise,
+            Counterclockwise,
+        }
+
+        static void RotateMatrix(int[,] matrix, Rotation rotation)
         {
             int size = matrix.GetLength(0);
 
             for (int x = 0; x < size / 2; x++)
             {
-                for (int y = x; y < size - x - 1; y++)
+                for (int y = x; y < size - 1 - x; y++)
                 {
-                    int temp = matrix[x, y];
-
-                    matrix[x, y] = matrix[y, size - 1 - x];
-
-                    matrix[y, size - 1 - x] = matrix[size - 1 - x, size - 1 - y];
-
-                    matrix[size - 1 - x, size - 1 - y] = matrix[size - 1 - y, x];
-
-                    matrix[size - 1 - y, x] = temp;
+                    switch (rotation)
+                    {
+                        case Rotation.Clockwise:
+                            {
+                                int temp = matrix[x, y];
+                                matrix[x, y] = matrix[size - 1 - y, x];
+                                matrix[size - 1 - y, x] = matrix[size - 1 - x, size - 1 - y];
+                                matrix[size - 1 - x, size - 1 - y] = matrix[y, size - 1 - x];
+                                matrix[y, size - 1 - x] = temp;
+                            }
+                            break;
+                        case Rotation.Counterclockwise:
+                            {
+                                int temp = matrix[x, y];
+                                matrix[x, y] = matrix[y, size - 1 - x];
+                                matrix[y, size - 1 - x] = matrix[size - 1 - x, size - 1 - y];
+                                matrix[size - 1 - x, size - 1 - y] = matrix[size - 1 - y, x];
+                                matrix[size - 1 - y, x] = temp;
+                            }
+                            break;
+                    }
                 }
             }
         }
@@ -36,10 +54,18 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
         class Question07Test
         {
             [Test]
-            public void Question07_RotateMatrix()
+            public void Question07_RotateMatrix_Clockwise()
             {
                 int[,] matrix = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-                Question07.RotateMatrix(matrix);
+                Question07.RotateMatrix(matrix, Rotation.Clockwise);
+                CollectionAssert.AreEqual(new int[4, 4] { { 13, 9, 5, 1 }, { 14, 10, 6, 2 }, { 15, 11, 7, 3 }, { 16, 12, 8, 4 } }, matrix);
+            }
+
+            [Test]
+            public void Question07_RotateMatrix_Counterclockwise()
+            {
+                int[,] matrix = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+                Question07.RotateMatrix(matrix, Rotation.Counterclockwise);
                 CollectionAssert.AreEqual(new int[4, 4] { { 4, 8, 12, 16 }, { 3, 7, 11, 15 }, { 2, 6, 10, 14 }, { 1, 5, 9, 13 } }, matrix);
             }
 
