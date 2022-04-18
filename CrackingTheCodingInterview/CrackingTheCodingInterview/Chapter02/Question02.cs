@@ -12,29 +12,18 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
     /// </summary>
     class Question02
     {
-        static int ReturnKthToLast(LinkedList<int> linkedList, int k)
+        static T ReturnKthToLast<T>(LinkedList<T> linkedList, int k)
         {
             /*
              * 
              * Let us pretend that we are dealing with a singly linked list, 
-             * therefore the Previous property of the LinkedListNode class cannot be used; 
-             * and let us pretend that the LinkedList class does not implement the Count property 
+             * therefore the Previous property of the LinkedListNode class cannot be used 
              * 
              */
 
-            LinkedListNode<int> linkedListNode = linkedList.First;
+            LinkedListNode<T> linkedListNode = linkedList.First;
 
-            int length = 0;
-
-            while (linkedListNode != null)
-            {
-                length++;
-                linkedListNode = linkedListNode.Next;
-            }
-
-            linkedListNode = linkedList.First;
-
-            for (int i = 0; i < length - k; i++)
+            for (int i = 0; i < linkedList.Count - k; i++)
             {
                 linkedListNode = linkedListNode.Next;
             }

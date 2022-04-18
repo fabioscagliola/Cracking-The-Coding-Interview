@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
@@ -12,17 +13,17 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
     /// </summary>
     class Question01
     {
-        static void RemoveDups(LinkedList<int> linkedList)
+        static void RemoveDups<T>(LinkedList<T> linkedList) where T : IEquatable<T>
         {
-            LinkedListNode<int> one = linkedList.First;
+            LinkedListNode<T> one = linkedList.First;
 
             while (one != null)
             {
-                LinkedListNode<int> two = one.Next;
+                LinkedListNode<T> two = one.Next;
 
                 while (two != null)
                 {
-                    if (one.Value == two.Value)
+                    if (one.Value.Equals(two.Value))
                     {
                         linkedList.Remove(two);
                     }
