@@ -29,7 +29,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
             int M = matrix.GetLength(0);
             int N = matrix.GetLength(1);
 
-            List<Zero> zeroes = new List<Zero>();
+            List<Zero> zeroes = new();
 
             for (int x = 0; x < M; x++)
             {
@@ -57,10 +57,10 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
         }
 
         [TestFixture]
-        class Question07Test
+        class Question09Test
         {
             [Test]
-            public void Question07_ZeroMatrix()
+            public void Question09_ZeroMatrix()
             {
                 int[,] matrix = new int[4, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 0, 14, 15 }, { 16, 17, 18, 19, 20 } };
                 Question08.ZeroMatrix(matrix);

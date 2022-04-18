@@ -11,14 +11,14 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// </summary>
     class Question05
     {
-        static bool OneAway(string s1, string s2)
+        static bool OneAway(string a, string b)
         {
             // A character was inserted 
-            if (s1.Length == s2.Length - 1)
+            if (a.Length == b.Length - 1)
             {
-                for (int i = 0; i < s1.Length; i++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (!s2.Contains(s1[i]))
+                    if (!b.Contains(a[i]))
                     {
                         return false;
                     }
@@ -26,11 +26,11 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
             }
 
             // A character was removed 
-            if (s1.Length == s2.Length + 1)
+            if (a.Length == b.Length + 1)
             {
-                for (int i = 0; i < s2.Length; i++)
+                for (int i = 0; i < b.Length; i++)
                 {
-                    if (!s1.Contains(s2[i]))
+                    if (!a.Contains(b[i]))
                     {
                         return false;
                     }
@@ -38,13 +38,13 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
             }
 
             // A character was replaced 
-            if (s2.Length == s1.Length)
+            if (b.Length == a.Length)
             {
                 int replacedCharacters = 0;
 
-                for (int i = 0; i < s1.Length - 1; i++)
+                for (int i = 0; i < a.Length - 1; i++)
                 {
-                    if (s1[i] != s2[i])
+                    if (a[i] != b[i])
                     {
                         replacedCharacters++;
 

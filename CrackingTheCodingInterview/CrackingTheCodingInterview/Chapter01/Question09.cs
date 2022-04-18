@@ -11,16 +11,16 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// </summary>
     class Question09
     {
-        static bool StringRotation(string s1, string s2)
+        static bool StringRotation(string a, string b)
         {
-            return string.Concat(s1, s1).Contains(s2);
+            return string.Concat(a, a).Contains(b);
         }
 
         [TestFixture]
-        class Question07Test
+        class Question09Test
         {
             [Test]
-            public void Question07_ZeroMatrix_ReturnsTrue()
+            public void Question09_StringRotation_ReturnsTrue()
             {
                 Assert.IsTrue(Question09.StringRotation("waterbottle", "erbottlewat"));
             }

@@ -14,7 +14,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     {
         static string StringCompression(string s)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             int count = 0;
 

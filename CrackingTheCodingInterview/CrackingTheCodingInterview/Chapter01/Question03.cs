@@ -14,7 +14,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     {
         static string URLify(string s, int length)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             for (int i = 0; i < length; i++)
             {

@@ -2,7 +2,7 @@
 
 189 programming questions and my solutions in C# 
 
-## 1 Arrays and Strings 
+## Chapter 1 – Arrays and Strings 
 
 ### 1.1 Is Unique 
 
@@ -39,4 +39,10 @@ Write an algorithm such that if an element in an M x N matrix is 0, its entire r
 ### 1.9 String Rotation 
 
 Assume you have a method `isSubstring` which checks if one word is a substring of another. Given two strings, `s1` and `s2`, write code to check if `s2` is a rotation of `s1` using only one call to `isSubstring` (e.g., "waterbottle" is a rotation of "erbottlewat"). 
+
+## Chapter 2 – Linked lists 
+
+### 2.1 Remove Dups 
+
+Write code to remove duplicates from an unsorted linked list. How would you solve this problem if a temporary buffer is not allowed? 
 

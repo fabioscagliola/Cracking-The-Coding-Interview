@@ -9,7 +9,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview
         /// </summary>
         public static List<List<T>> GeneratePermutations<T>(this List<T> list)
         {
-            List<List<T>> permutations = new List<List<T>>();
+            List<List<T>> permutations = new();
             Heap(list, list.Count, permutations);
             return permutations; ;
         }

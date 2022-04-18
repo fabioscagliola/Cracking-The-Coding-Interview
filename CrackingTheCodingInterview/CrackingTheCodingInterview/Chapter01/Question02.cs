@@ -12,9 +12,9 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     /// </summary>
     class Question02
     {
-        static bool CheckPermutation(string s1, string s2)
+        static bool CheckPermutation(string a, string b)
         {
-            return SortString(s1) == SortString(s2);
+            return SortString(a) == SortString(b);
         }
 
         static string SortString(string s)
