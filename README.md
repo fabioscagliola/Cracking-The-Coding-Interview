@@ -46,3 +46,7 @@ Assume you have a method `isSubstring` which checks if one word is a substring o
 
 Write code to remove duplicates from an unsorted linked list. How would you solve this problem if a temporary buffer is not allowed? 
 
+### 2.2 Return Kth to Last 
+
+Implement an algorithm to find the kth to last element of a singly linked list. 
+
