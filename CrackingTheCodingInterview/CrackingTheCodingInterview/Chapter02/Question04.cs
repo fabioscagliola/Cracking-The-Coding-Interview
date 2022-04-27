@@ -13,16 +13,43 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
     /// </summary>
     class Question04
     {
-        static void Partition<T>(LinkedList<T> linkedList, T value) where T : IComparable<T>
+        static LinkedList<T> Partition<T>(LinkedList<T> linkedList, T value) where T : IComparable<T>
         {
-            LinkedListNode<T> one = linkedList.First;
+            LinkedList<T> result = new();
 
-            while (one != null)
+            LinkedListNode<T> linkedListNode = linkedList.Find(value);
+
+            while (linkedListNode != null)
             {
-                //LinkedListNode<T> two = one 
+                AddFirstOrLast(result, linkedListNode, value);
 
+                linkedListNode = linkedListNode.Next;
+            }
 
-                one = one.Next;
+            linkedListNode = linkedList.Find(value).Previous;
+
+            while (linkedListNode != null)
+            {
+                AddFirstOrLast(result, linkedListNode, value);
+
+                linkedListNode = linkedListNode.Previous;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Adds a node to the head of a linked list if the value of the node is lower than the specified value, otherwise it adds it to the tail 
+        /// </summary>
+        static void AddFirstOrLast<T>(LinkedList<T> linkedList, LinkedListNode<T> linkedListNode, T value) where T : IComparable<T>
+        {
+            if (linkedListNode.Value.CompareTo(value) == -1)
+            {
+                linkedList.AddFirst(linkedListNode.Value);
+            }
+            else
+            {
+                linkedList.AddLast(linkedListNode.Value);
             }
         }
 
@@ -33,8 +60,8 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
             public void Question04_Partition()
             {
                 LinkedList<int> linkedList = new(new int[] { 3, 5, 8, 5, 10, 2, 1 });
-                Question04.Partition(linkedList, 5);
-                CollectionAssert.AreEqual(new LinkedList<int>(new int[] { 3, 1, 2, 10, 5, 5, 8 }), linkedList);
+                linkedList = Question04.Partition(linkedList, 5);
+                CollectionAssert.AreEqual(new LinkedList<int>(new int[] { 3, 1, 2, 5, 8, 5, 10 }), linkedList);
             }
 
         }

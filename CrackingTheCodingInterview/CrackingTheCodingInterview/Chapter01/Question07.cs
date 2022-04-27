@@ -17,7 +17,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
             Counterclockwise,
         }
 
-        static void RotateMatrix(int[,] matrix, Rotation rotation)
+        static void RotateMatrix<T>(T[,] matrix, Rotation rotation)
         {
             int size = matrix.GetLength(0);
 
@@ -29,7 +29,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
                     {
                         case Rotation.Clockwise:
                             {
-                                int temp = matrix[x, y];
+                                T temp = matrix[x, y];
                                 matrix[x, y] = matrix[size - 1 - y, x];
                                 matrix[size - 1 - y, x] = matrix[size - 1 - x, size - 1 - y];
                                 matrix[size - 1 - x, size - 1 - y] = matrix[y, size - 1 - x];
@@ -38,7 +38,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
                             break;
                         case Rotation.Counterclockwise:
                             {
-                                int temp = matrix[x, y];
+                                T temp = matrix[x, y];
                                 matrix[x, y] = matrix[y, size - 1 - x];
                                 matrix[y, size - 1 - x] = matrix[size - 1 - x, size - 1 - y];
                                 matrix[size - 1 - x, size - 1 - y] = matrix[size - 1 - y, x];
