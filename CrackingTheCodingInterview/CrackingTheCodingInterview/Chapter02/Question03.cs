@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 
 namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
@@ -13,7 +12,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter02
     /// </summary>
     class Question03
     {
-        static void DeleteMiddleNode<T>(LinkedListNode<T> linkedListNode) where T : IEquatable<T>
+        static void DeleteMiddleNode<T>(LinkedListNode<T> linkedListNode)
         {
             linkedListNode.List.Remove(linkedListNode);
         }

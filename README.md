@@ -54,3 +54,7 @@ Implement an algorithm to find the kth to last element of a singly linked list.
 
 Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node. 
 
+### 2.4 Partition 
+
+Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. 
+

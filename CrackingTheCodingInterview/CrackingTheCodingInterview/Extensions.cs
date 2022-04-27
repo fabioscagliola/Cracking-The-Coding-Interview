@@ -11,7 +11,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview
         {
             List<List<T>> permutations = new();
             Heap(list, list.Count, permutations);
-            return permutations; ;
+            return permutations;
         }
 
         /// <summary>
