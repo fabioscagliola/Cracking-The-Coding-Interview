@@ -16,7 +16,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter01
     {
         static bool PalindromePermutation(string s)
         {
-            List<List<char>> permutations = s.ToCharArray().ToList().GeneratePermutations();
+            List<List<char>> permutations = s.ToCharArray().ToList().GeneratePermutations();  // This extension method is implemented in Extensions.cs 
             return permutations.Select(x => new string(x.ToArray())).Contains(s);
         }
 
