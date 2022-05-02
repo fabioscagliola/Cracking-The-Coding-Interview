@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace com.fabioscagliola.CrackingTheCodingInterview
 {
@@ -12,6 +13,31 @@ namespace com.fabioscagliola.CrackingTheCodingInterview
             List<List<T>> permutations = new();
             Heap(list, list.Count, permutations);
             return permutations;
+        }
+
+        /// <summary>
+        /// Sorts a stack, the smallest items on top 
+        /// </summary>
+        public static void Sort<T>(this Stack<T> stack1) where T : IComparable<T>
+        {
+            Stack<T> stack2 = new();
+
+            while (stack1.Count != 0)
+            {
+                T item = stack1.Pop();
+
+                while (stack2.Count != 0 && stack2.Peek().CompareTo(item) == 1)
+                {
+                    stack1.Push(stack2.Pop());
+                }
+
+                stack2.Push(item);
+            }
+
+            while (stack2.Count != 0)
+            {
+                stack1.Push(stack2.Pop());
+            }
         }
 
         /// <summary>
