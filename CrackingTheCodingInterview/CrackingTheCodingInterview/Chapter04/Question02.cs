@@ -18,11 +18,19 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
 
         static BinaryNode<int> CreateBinarySearchTree(int[] list, int begin, int end)
         {
-            if (end < begin) return null;
+            if (end < begin)
+            {
+                return null;
+            }
+
             int median = (begin + end) / 2;
+
             BinaryNode<int> lChild = CreateBinarySearchTree(list, begin, median - 1);
+
             BinaryNode<int> rChild = CreateBinarySearchTree(list, median + 1, end);
+
             BinaryNode<int> binaryNode = new(list[median], lChild, rChild);
+
             return binaryNode;
         }
 
@@ -41,7 +49,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
                 Assert.AreEqual(6, binaryNode.RChild.Value);
                 Assert.AreEqual(5, binaryNode.RChild.LChild.Value);
                 Assert.AreEqual(7, binaryNode.RChild.RChild.Value);
-                Assert.AreEqual(8, binaryNode.RChild.RChild.RChild.Value);  // TODO: Why the 8 ends up in the right child?! 
+                Assert.AreEqual(8, binaryNode.RChild.RChild.RChild.Value);  // TODO: Why does the 8 end up in the right child ?! 
             }
 
         }
