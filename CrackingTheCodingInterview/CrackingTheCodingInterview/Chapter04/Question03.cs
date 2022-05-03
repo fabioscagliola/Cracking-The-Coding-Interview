@@ -21,7 +21,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
             return result;
         }
 
-        static void DoLinkedList<T>(List<LinkedList<BinaryNode<T>>> lists, BinaryNode<T> binaryNode, int d) where T : IComparable<T>
+        static void DoLinkedList<T>(List<LinkedList<BinaryNode<T>>> result, BinaryNode<T> binaryNode, int d) where T : IComparable<T>
         {
             if (binaryNode == null)
             {
@@ -30,20 +30,20 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
 
             LinkedList<BinaryNode<T>> linkedList;
 
-            if (lists.Count == d)
+            if (result.Count == d)
             {
                 linkedList = new();
-                lists.Add(linkedList);
+                result.Add(linkedList);
             }
             else
             {
-                linkedList = lists[d];
+                linkedList = result[d];
             }
 
             linkedList.AddLast(binaryNode);
 
-            DoLinkedList(lists, binaryNode.LChild, d + 1);
-            DoLinkedList(lists, binaryNode.RChild, d + 1);
+            DoLinkedList(result, binaryNode.LChild, d + 1);
+            DoLinkedList(result, binaryNode.RChild, d + 1);
         }
 
         [TestFixture]
