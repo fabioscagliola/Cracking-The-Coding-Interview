@@ -3,19 +3,13 @@ using System.Collections.Generic;
 
 namespace com.fabioscagliola.CrackingTheCodingInterview
 {
-    class Node<T> where T : IComparable<T>
+    class Node<T> : BaseNode<T> where T : IComparable<T>
     {
         public List<Node<T>> NodeList { get; set; }
 
-        public T Value { get; set; }
-
-        public bool Visited { get; set; }
-
-        public Node(T value)
+        public Node(T value) : base(value)
         {
             NodeList = new();
-
-            Value = value;
         }
 
         public Node<T> DepthFirstSearch(Node<T> target)
@@ -29,15 +23,15 @@ namespace com.fabioscagliola.CrackingTheCodingInterview
                     return node;
                 }
 
-                node.DepthFirstSearch(target);
+                Node<T> result = node.DepthFirstSearch(target);
+
+                if (result != null)
+                {
+                    return result;
+                }
             }
 
             return null;
-        }
-
-        public override string ToString()
-        {
-            return Value.ToString();
         }
 
     }

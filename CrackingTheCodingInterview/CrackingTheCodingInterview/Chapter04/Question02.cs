@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 
 namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
 {
@@ -12,19 +11,19 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
     /// </summary>
     class Question02
     {
-        static Node<T> MinimalTree<T>(T[] list) where T : IComparable<T>
+        static BinaryNode<int> MinimalTree(int[] list)
         {
-            Node<T> parent = new(list[0]);
+            return CreateBinarySearchTree(list, 0, list.Length - 1);
+        }
 
-            for (int i = 1; i < list.Length; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    parent.NodeList.Add(new Node<T>(list[i]));
-                }
-            }
-
-            return parent;
+        static BinaryNode<int> CreateBinarySearchTree(int[] list, int begin, int end)
+        {
+            if (end < begin) return null;
+            int median = (begin + end) / 2;
+            BinaryNode<int> lChild = CreateBinarySearchTree(list, begin, median - 1);
+            BinaryNode<int> rChild = CreateBinarySearchTree(list, median + 1, end);
+            BinaryNode<int> binaryNode = new(list[median], lChild, rChild);
+            return binaryNode;
         }
 
         [TestFixture]
@@ -33,35 +32,16 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
             [Test]
             public void Question02_MinimalTree()
             {
-                Graph<int> graph = new();
+                BinaryNode<int> binaryNode = MinimalTree(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 });
 
-                Node<int> n0 = new(0);
-                Node<int> n1 = new(1);
-                Node<int> n2 = new(2);
-                Node<int> n3 = new(3);
-                Node<int> n4 = new(4);
-                Node<int> n5 = new(5);
-
-                n0.NodeList.Add(n1);
-                n0.NodeList.Add(n4);
-                n0.NodeList.Add(n5);
-
-                n1.NodeList.Add(n3);
-                n1.NodeList.Add(n4);
-
-                n2.NodeList.Add(n1);
-
-                n3.NodeList.Add(n2);
-                n3.NodeList.Add(n4);
-
-                graph.NodeList.Add(n0);
-                graph.NodeList.Add(n1);
-                graph.NodeList.Add(n2);
-                graph.NodeList.Add(n3);
-                graph.NodeList.Add(n4);
-                graph.NodeList.Add(n5);
-
-                Node<int> node = MinimalTree(new int[] { 0, 1, 2, 3, 5, 7, 9 });
+                Assert.AreEqual(4, binaryNode.Value);
+                Assert.AreEqual(2, binaryNode.LChild.Value);
+                Assert.AreEqual(1, binaryNode.LChild.LChild.Value);
+                Assert.AreEqual(3, binaryNode.LChild.RChild.Value);
+                Assert.AreEqual(6, binaryNode.RChild.Value);
+                Assert.AreEqual(5, binaryNode.RChild.LChild.Value);
+                Assert.AreEqual(7, binaryNode.RChild.RChild.Value);
+                Assert.AreEqual(8, binaryNode.RChild.RChild.RChild.Value);  // TODO: Why the 8 ends up in the right child?! 
             }
 
         }

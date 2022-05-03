@@ -23,7 +23,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
             [Test]
             public void Question01_RouteBetweenNodes()
             {
-                Graph<int> graph = new();
+                Graph<int> graph = new();  // This is the 6-node graph on page 107 
 
                 Node<int> n0 = new(0);
                 Node<int> n1 = new(1);
@@ -51,36 +51,7 @@ namespace com.fabioscagliola.CrackingTheCodingInterview.Chapter04
                 graph.NodeList.Add(n4);
                 graph.NodeList.Add(n5);
 
-                Assert.IsTrue(RouteBetweenNodes(graph, n0, n1));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n0, n2));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n0, n3));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n0, n4));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n0, n5));
-                //Assert.IsNull(graph.DepthFirstSearch(n1, n0));
-                //Assert.IsNull(graph.DepthFirstSearch(n1, n2));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n1, n3));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n1, n4));
-                //Assert.IsNull(graph.DepthFirstSearch(n1, n5));
-                //Assert.IsNull(graph.DepthFirstSearch(n2, n0));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n2, n1));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n2, n3));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n2, n4));
-                //Assert.IsNull(graph.DepthFirstSearch(n2, n5));
-                //Assert.IsNull(graph.DepthFirstSearch(n3, n0));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n3, n1));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n3, n2));
-                //Assert.IsNotNull(graph.DepthFirstSearch(n3, n4));
-                //Assert.IsNull(graph.DepthFirstSearch(n3, n5));
-                //Assert.IsNull(graph.DepthFirstSearch(n4, n0));
-                //Assert.IsNull(graph.DepthFirstSearch(n4, n1));
-                //Assert.IsNull(graph.DepthFirstSearch(n4, n2));
-                //Assert.IsNull(graph.DepthFirstSearch(n4, n3));
-                //Assert.IsNull(graph.DepthFirstSearch(n4, n5));
-                //Assert.IsNull(graph.DepthFirstSearch(n5, n0));
-                //Assert.IsNull(graph.DepthFirstSearch(n5, n1));
-                //Assert.IsNull(graph.DepthFirstSearch(n5, n2));
-                //Assert.IsNull(graph.DepthFirstSearch(n5, n3));
-                //Assert.IsNull(graph.DepthFirstSearch(n5, n4));
+                Assert.IsTrue(RouteBetweenNodes(graph, n0, n2));
             }
 
         }
